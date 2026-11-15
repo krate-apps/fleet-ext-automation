@@ -1,0 +1,26 @@
+schema: 1
+id: org.fleet.automation
+name: Automation Rules
+description: Ordered if/then rules for torrents (label, move, throttle, pause, webhooks).
+version: 1.0.0
+api: ">=1.0.0 <2.0.0"
+engines:
+  - rtorrent
+capabilities:
+  - storage.read
+  - storage.write
+  - torrents.read
+  - torrents.actions
+  - trackers.read
+  - gateways.read
+  - settings.write
+  - http.fetch
+  - files.read
+  - files.write
+frontend:
+  type: declarative
+  entry: ui/extension.json
+backend:
+  type: process
+  executable: bin/automation-worker
+  protocol: jsonrpc-2
